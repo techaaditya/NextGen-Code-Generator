@@ -26,5 +26,14 @@
     "paths": {
       "@/*" :  ["./*"]
     }
-  }
+  },
+  "include": [
+    "src",
+    "App.tsx",
+    "index.tsx",
+    "constants.ts",
+    "types.ts",
+    "vite.config.ts",
+    "declarations.d.ts"
+  ]
 }
