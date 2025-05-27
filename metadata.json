@@ -1,0 +1,6 @@
+{
+  "name": "NextGen Code Generator",
+  "description": "A tool to generate high-quality code snippets using the Gemini API. Users can input a programming task and select a target language, and the application will produce the corresponding code.",
+  "requestFramePermissions": [],
+  "prompt": ""
+}
