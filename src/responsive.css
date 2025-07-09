@@ -1,0 +1,73 @@
+/* Additional responsive styles */
+
+/* Portrait orientation adjustments */
+@media (orientation: portrait) {
+  /* Make sure content doesn't overflow */
+  html, body {
+    overflow-x: hidden;
+    width: 100%;
+  }
+  
+  /* Smaller paddings on mobile portrait */
+  .mobile-portrait-padding {
+    padding: 0.75rem !important;
+  }
+  
+  /* Adjust text sizes on mobile portrait */
+  .mobile-portrait-text {
+    font-size: 0.875rem !important;
+  }
+}
+
+/* Landscape orientation adjustments */
+@media (orientation: landscape) and (max-height: 500px) {
+  /* Smaller height elements */
+  .landscape-height-adjust {
+    max-height: 70vh;
+  }
+  
+  /* Tighter layout */
+  .landscape-compact {
+    padding-top: 0.5rem !important;
+    padding-bottom: 0.5rem !important;
+  }
+}
+
+/* Small device specific styles */
+@media (max-width: 480px) {
+  /* Single column layout tweaks */
+  .small-device-stack > * {
+    width: 100%;
+  }
+  
+  /* Smaller font sizes */
+  .small-device-text {
+    font-size: 0.75rem !important;
+  }
+  
+  /* Compact buttons */
+  .small-device-buttons {
+    padding: 0.5rem 0.75rem !important;
+  }
+}
+
+/* Fix for iOS devices to prevent unexpected zooming */
+@media screen and (max-width: 768px) {
+  input, select, textarea {
+    font-size: 16px !important;
+  }
+}
+
+/* Fix for any overflow issues */
+.prevent-overflow {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
+  hyphens: auto;
+}
+
+/* Improve tap targets on mobile */
+.mobile-tap-target {
+  min-height: 44px;
+  min-width: 44px;
+}

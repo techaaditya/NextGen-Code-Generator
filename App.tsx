@@ -627,26 +627,30 @@ const App: React.FC = () => {
     : (selectedProjectType.value === 'db_schema' ? 'sql' : language);
 
   return (
-    <div className={`min-h-screen bg-[var(--bg-primary)] text-[var(--text-primary)] flex flex-col items-center p-4 md:p-6 lg:p-8 transition-colors duration-300 ease-in-out`}>
-      <header className={`w-full ${containerMaxWidth} mb-6 md:mb-8 text-center transition-all duration-300 ease-in-out`}>
-        <div className="flex items-center justify-center w-full mb-2">
-          <SparklesIcon className="w-8 h-8 md:w-10 md:h-10 text-[var(--text-accent)]" />
-          <h1 className="ml-3 text-3xl md:text-4xl lg:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-[var(--accent-primary)] to-[var(--accent-secondary)]">
+    <div className={`min-h-screen bg-[var(--bg-primary)] text-[var(--text-primary)] flex flex-col items-center p-3 xs:p-4 md:p-6 lg:p-8 transition-colors duration-300 ease-in-out overflow-x-hidden`}>
+      <header className={`w-full ${containerMaxWidth} mb-4 xs:mb-6 md:mb-8 text-center transition-all duration-300 ease-in-out`}>
+        <div className="flex flex-col xs:flex-row items-center justify-center w-full mb-2">
+          <SparklesIcon className="w-8 h-8 md:w-10 md:h-10 text-[var(--text-accent)] mb-2 xs:mb-0" />
+          <h1 className="xs:ml-3 text-2xl xs:text-3xl md:text-4xl lg:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-[var(--accent-primary)] to-[var(--accent-secondary)]">
             NextGen Code Generator
           </h1>
         </div>
-        <p className="text-[var(--text-secondary)] text-md md:text-lg">Instantly generate code, explanations, and previews.</p>
+        <p className="text-[var(--text-secondary)] text-sm xs:text-md md:text-lg">Instantly generate code, explanations, and previews.</p>
       </header>
 
-      <main className={`w-full ${containerMaxWidth} transition-all duration-300 ease-in-out ${showLivePreview && previewHtml ? 'grid grid-cols-1 lg:grid-cols-[minmax(0,_2fr)_minmax(0,_3fr)] gap-6 md:gap-8' : 'grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8'}`}>
+      <main className={`w-full ${containerMaxWidth} transition-all duration-300 ease-in-out ${
+        showLivePreview && previewHtml 
+          ? 'grid grid-cols-1 lg:grid-cols-[minmax(0,_1fr)_minmax(0,_1fr)] xl:grid-cols-[minmax(0,_2fr)_minmax(0,_3fr)] gap-4 xs:gap-6 md:gap-8' 
+          : 'grid grid-cols-1 sm:grid-cols-2 gap-4 xs:gap-6 md:gap-8'
+      }`}>
         {showLivePreview && previewHtml ? (
           <>
             {/* Column 1: Input Details & Generated Code (when preview is shown) */}
-            <div className="flex flex-col gap-6 md:gap-8 lg:h-[calc(100vh-180px)] lg:overflow-y-auto pr-2 simple-scrollbar">
+            <div className="flex flex-col gap-4 xs:gap-6 md:gap-8 lg:h-[calc(100vh-180px)] lg:overflow-y-auto pr-0 xs:pr-2 simple-scrollbar">
               {/* Input Details Panel */}
-              <div className="bg-[var(--bg-secondary)] p-6 rounded-xl shadow-2xl border border-[var(--border-primary)]">
-                <h2 className="text-2xl font-semibold mb-6 text-[var(--text-accent)]">Input Details</h2>
-                <div className="space-y-6">
+              <div className="bg-[var(--bg-secondary)] p-4 xs:p-6 rounded-xl shadow-2xl border border-[var(--border-primary)]">
+                <h2 className="text-xl xs:text-2xl font-semibold mb-4 xs:mb-6 text-[var(--text-accent)]">Input Details</h2>
+                <div className="space-y-4 xs:space-y-6">
                   <PromptInput 
                     value={prompt} 
                     onTextChange={handlePromptTextChange} 
@@ -664,11 +668,11 @@ const App: React.FC = () => {
                       languages={SUPPORTED_LANGUAGES} 
                     />
                   )}
-                  <button onClick={handleGenerateCode} disabled={isLoading || isExplainingCode} className="w-full flex items-center justify-center bg-[var(--accent-primary)] hover:bg-[var(--accent-primary-hover)] disabled:bg-[var(--bg-tertiary)] disabled:text-[var(--text-secondary)] text-[var(--text-on-accent)] font-semibold py-3 px-4 rounded-lg transition-colors duration-150 focus:outline-none focus:ring-2 focus:ring-[var(--accent-primary)] focus:ring-opacity-75 shadow-md hover:shadow-lg disabled:shadow-none" aria-live="polite">
-                    {isLoading ? (<><LoadingSpinner className="w-5 h-5 mr-2" />Generating Code...</>) : (<><SparklesIcon className="w-5 h-5 mr-2" />Generate Code</>)}
+                  <button onClick={handleGenerateCode} disabled={isLoading || isExplainingCode} className="w-full flex items-center justify-center bg-[var(--accent-primary)] hover:bg-[var(--accent-primary-hover)] disabled:bg-[var(--bg-tertiary)] disabled:text-[var(--text-secondary)] text-[var(--text-on-accent)] font-semibold py-2 xs:py-3 px-3 xs:px-4 rounded-lg transition-colors duration-150 focus:outline-none focus:ring-2 focus:ring-[var(--accent-primary)] focus:ring-opacity-75 shadow-md hover:shadow-lg disabled:shadow-none text-sm xs:text-base" aria-live="polite">
+                    {isLoading ? (<><LoadingSpinner className="w-4 h-4 xs:w-5 xs:h-5 mr-2" />Generating Code...</>) : (<><SparklesIcon className="w-4 h-4 xs:w-5 xs:h-5 mr-2" />Generate Code</>)}
                   </button>
-                  <button onClick={() => setShowLivePreview(false)} className="w-full flex items-center justify-center bg-[var(--accent-secondary)] hover:bg-[var(--accent-secondary-hover)] text-[var(--text-on-accent)] font-semibold py-2.5 px-4 rounded-lg transition-colors duration-150 shadow-md hover:shadow-lg" aria-label="Hide Live Preview">
-                    <CompressIcon className="w-5 h-5 mr-2" /> Hide Preview
+                  <button onClick={() => setShowLivePreview(false)} className="w-full flex items-center justify-center bg-[var(--accent-secondary)] hover:bg-[var(--accent-secondary-hover)] text-[var(--text-on-accent)] font-semibold py-2 xs:py-2.5 px-3 xs:px-4 rounded-lg transition-colors duration-150 shadow-md hover:shadow-lg text-sm xs:text-base" aria-label="Hide Live Preview">
+                    <CompressIcon className="w-4 h-4 xs:w-5 xs:h-5 mr-2" /> Hide Preview
                   </button>
                 </div>
               </div>

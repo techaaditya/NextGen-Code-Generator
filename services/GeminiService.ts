@@ -4,14 +4,16 @@ import { GoogleGenAI } from "@google/genai";
 import { GEMINI_MODEL_NAME } from '../constants';
 import { ProjectTypeOption, PortfolioFileContent } from "../types";
 
-// API Key check - directly use process.env.API_KEY
-if (!process.env.API_KEY) {
+// Get API key from Vite's environment variables
+const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
+
+// API Key check - using import.meta.env for client-side access
+if (!apiKey) {
   console.error("API_KEY environment variable not set. Gemini Service will not function.");
 }
 
-// Initialize Gemini AI client - directly use process.env.API_KEY and assert non-null
-// as per guideline "Assume this variable is pre-configured, valid, and accessible"
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY! });
+// Initialize Gemini AI client with the apiKey from import.meta.env
+const ai = new GoogleGenAI({ apiKey });
 
 const generatePortfolioPrompt = (userSpecifics: string): string => `
 You are a world-class web design and development AI, specializing in creating stunning, modern, and **ready-to-deploy** single-page developer portfolio websites.
@@ -251,8 +253,8 @@ export class GeminiService {
     projectType: ProjectTypeOption['value'],
     language?: string // Optional, used when projectType requires it
   ): Promise<string | PortfolioFileContent> {
-    if (!process.env.API_KEY) {
-      throw new Error("API Key for Gemini is not configured. Please set the API_KEY environment variable.");
+    if (!apiKey) {
+      throw new Error("API Key for Gemini is not configured. Please set the VITE_GEMINI_API_KEY environment variable.");
     }
 
     let fullPrompt: string;
@@ -367,8 +369,8 @@ export class GeminiService {
   }
 
   static async explainCode(codeToExplain: string, language: string): Promise<string> {
-    if (!process.env.API_KEY) {
-      throw new Error("API Key for Gemini is not configured. Please set the API_KEY environment variable.");
+    if (!apiKey) {
+      throw new Error("API Key for Gemini is not configured. Please set the VITE_GEMINI_API_KEY environment variable.");
     }
     if (!codeToExplain.trim()) {
       return "There is no code to explain.";

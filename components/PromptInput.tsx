@@ -53,8 +53,8 @@ export const PromptInput: React.FC<PromptInputProps> = ({ value, onTextChange, o
       <textarea
         id="prompt"
         name="prompt"
-        rows={8}
-        className="block w-full bg-[var(--bg-tertiary)] border-[var(--border-primary)] rounded-md shadow-sm focus:ring-[var(--accent-primary)] focus:border-[var(--accent-primary)] sm:text-sm p-3 text-[var(--text-primary)] placeholder-[var(--text-secondary)] placeholder-opacity-70 resize-none outline-none transition-colors duration-150"
+        rows={6}
+        className="block w-full bg-[var(--bg-tertiary)] border-[var(--border-primary)] rounded-md shadow-sm focus:ring-[var(--accent-primary)] focus:border-[var(--accent-primary)] text-xs xs:text-sm p-2 xs:p-3 text-[var(--text-primary)] placeholder-[var(--text-secondary)] placeholder-opacity-70 resize-none outline-none transition-colors duration-150"
         placeholder={currentExample?.text || "Describe your coding task or press Tab for an example..."}
         value={value}
         onChange={(e) => onTextChange(e.target.value)} // No sourceExample for typing

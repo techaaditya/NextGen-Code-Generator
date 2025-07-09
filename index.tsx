@@ -2,7 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
 import { ThemeProvider } from './contexts/ThemeContext';
-import './src/index.css'; // Corrected import path
+import './src/index.css'; // Main CSS
+import './src/responsive.css'; // Responsive CSS additions
 
 const rootElement = document.getElementById('root');
 if (!rootElement) {
