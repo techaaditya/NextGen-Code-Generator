@@ -19,6 +19,23 @@ marked.setOptions({
 });
 
 export const ExplanationModal: React.FC<ExplanationModalProps> = ({ isOpen, onClose, explanation, isLoading, language }) => {
+  // Create a ref for the close button to manage focus
+  const closeButtonRef = React.useRef<HTMLButtonElement>(null);
+  
+  // Handle keyboard events for accessibility
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === 'Escape') {
+      onClose();
+    }
+  };
+  
+  // Set focus to the close button when modal opens
+  useEffect(() => {
+    if (isOpen && closeButtonRef.current) {
+      closeButtonRef.current.focus();
+    }
+  }, [isOpen]);
+  
   if (!isOpen) return null;
 
   const renderedExplanationHtml = useMemo(() => {
@@ -108,8 +125,11 @@ export const ExplanationModal: React.FC<ExplanationModalProps> = ({ isOpen, onCl
         
         <footer className="p-4 md:p-5 border-t border-[var(--border-secondary)] text-right sticky bottom-0 bg-[var(--bg-secondary)] z-10">
           <button
+            ref={closeButtonRef}
             onClick={onClose}
+            onKeyDown={handleKeyDown}
             className="bg-[var(--accent-secondary)] hover:bg-[var(--accent-secondary-hover)] text-[var(--text-on-accent)] font-semibold py-2.5 px-5 rounded-lg transition-colors duration-150 shadow-md hover:shadow-lg"
+            aria-label="Close explanation modal"
           >
             Close
           </button>

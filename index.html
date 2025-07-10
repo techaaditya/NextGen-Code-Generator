@@ -2,22 +2,11 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="theme-color" content="#1e293b">
   <meta name="description" content="Generate code snippets from natural language using AI">
   <title>NextGen Code Generator</title>
-  <script type="importmap">
-  {
-    "imports": {
-      "react/": "https://esm.sh/react@^19.1.0/",
-      "react": "https://esm.sh/react@^19.1.0",
-      "react-dom/": "https://esm.sh/react-dom@^19.1.0/",
-      "@google/genai": "https://esm.sh/@google/genai@^1.0.1",
-      "marked": "https://esm.sh/marked@^4.3.0",
-      "dompurify": "https://esm.sh/dompurify@^3.2.6"
-    }
-  }
-  </script>
   <link rel="stylesheet" href="/src/index.css">
   <style>
     /* Minimal base styles, theme variables will override */
@@ -31,10 +20,21 @@
     /* Dynamic scrollbar styles will be injected by ThemeProvider */
     /* Dynamic selection styles will be injected by ThemeProvider */
   </style>
+<script type="importmap">
+{
+  "imports": {
+    "react/": "https://esm.sh/react@^19.1.0/",
+    "react": "https://esm.sh/react@^19.1.0",
+    "react-dom/": "https://esm.sh/react-dom@^19.1.0/",
+    "@google/genai": "https://esm.sh/@google/genai@^1.0.1",
+    "marked": "https://esm.sh/marked@^4.3.0",
+    "dompurify": "https://esm.sh/dompurify@^3.2.6"
+  }
+}
+</script>
 </head>
 <body>
   <div id="root"></div>
-  <script src="/debug.js"></script>
-  <script type="module" src="/index.tsx"></script>
+  <script type="module" src="./index.tsx"></script>
 </body>
 </html>

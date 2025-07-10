@@ -18,7 +18,7 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({ value, onCha
       <select
         id="language"
         name="language"
-        className="block w-full bg-[var(--bg-interactive)] border-[var(--border-primary)] rounded-md shadow-sm focus:ring-[var(--accent-primary)] focus:border-[var(--accent-primary)] sm:text-sm p-3 text-[var(--text-primary)] outline-none transition-colors duration-150 appearance-none"
+        className="block w-full bg-[var(--bg-interactive)] border-[var(--border-primary)] rounded-md shadow-sm focus:ring-[var(--accent-primary)] focus:border-[var(--accent-primary)] sm:text-sm p-3 text-[var(--text-primary)] outline-none transition-colors duration-150 appearance-none min-h-[36px]"
         value={value}
         onChange={(e) => onChange(e.target.value)}
         style={{ 
