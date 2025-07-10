@@ -13,7 +13,7 @@ export const CopyButton: React.FC<CopyButtonProps> = ({ onClick, copied, classNa
     <button
       onClick={onClick}
       disabled={disabled}
-      className={`p-1.5 rounded-md transition-colors duration-150 focus:outline-none focus:ring-2 focus:ring-opacity-50 mobile-tap-target ${
+      className={`p-1.5 rounded-md transition-colors duration-150 focus:outline-none focus:ring-2 focus:ring-opacity-50 mobile-tap-target min-h-[32px] min-w-[32px] ${
         copied 
           ? 'bg-[var(--accent-success)] hover:opacity-80' 
           : 'bg-[var(--bg-interactive)] hover:bg-opacity-70'
