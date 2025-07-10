@@ -1,3 +1,4 @@
+/* tailwindcss directives - ignore CSS linting errors */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
