@@ -59,6 +59,21 @@
   }
 }
 
+/* Medium device adjustments */
+@media (min-width: 481px) and (max-width: 768px) {
+  /* Improved spacing for tablets */
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  /* Adjust font sizes for better readability on tablets */
+  pre code {
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+}
+
 /* Apply better tap targets for mobile devices */
 .mobile-tap-target {
   min-height: 44px;
@@ -81,8 +96,7 @@
   hyphens: auto;
 }
 
-/* Improve tap targets on mobile */
-.mobile-tap-target {
-  min-height: 44px;
-  min-width: 44px;
+/* Smooth theme transitions */
+body, button, select, input, textarea, a, div, span, p, h1, h2, h3, h4, h5, h6 {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
