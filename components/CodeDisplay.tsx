@@ -113,7 +113,7 @@ export const CodeDisplay: React.FC<CodeDisplayProps> = ({
             <button
               onClick={buttonAction}
               disabled={buttonDisabled}
-              className={`${buttonClasses} text-xs mobile-tap-target`}
+              className={`${buttonClasses} text-xs min-h-[32px] min-w-[32px] mobile-tap-target`}
               aria-label={buttonTitle}
               title={buttonTitle}
             >

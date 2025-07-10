@@ -49,6 +49,21 @@
   .small-device-buttons {
     padding: 0.5rem 0.75rem !important;
   }
+  
+  /* Improve readability on mobile */
+  pre code {
+    font-size: 0.8rem;
+    line-height: 1.4;
+    white-space: pre-wrap;
+    word-break: break-word;
+  }
+}
+
+/* Apply better tap targets for mobile devices */
+.mobile-tap-target {
+  min-height: 44px;
+  min-width: 44px;
+  touch-action: manipulation;
 }
 
 /* Fix for iOS devices to prevent unexpected zooming */
